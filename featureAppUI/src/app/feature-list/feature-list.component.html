@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Feature Requests</h1>
+
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Client</th>
+      <th>Client Priority</th>
+      <th>Area</th>
+      <th>Target Date</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let feature of data['features']; ">
+
+      <td>  {{feature.title}}  </td>
+      <td>  {{feature.description}}  </td>
+      <td> {{feature.client}} </td>
+      <td> {{feature.priority}} </td>
+      <td> {{feature.productArea}}   </td>
+      <td> {{feature.targetDate}}   </td>
+
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>

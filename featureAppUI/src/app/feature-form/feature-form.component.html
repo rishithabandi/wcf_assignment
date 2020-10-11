@@ -1,0 +1,92 @@
+<div class="container">
+
+  <!-- Button to Open the Modal -->
+  <div class="  text-center">
+    <button class="btn btn-primary  text-center" data-target="#myModal" data-toggle="modal" type="button">
+      Add new Feature
+    </button>
+
+  </div>
+
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+
+
+        <form #featureForm="ngForm" (ngSubmit)="onSubmit(featureForm)">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h1 class="modal-title">Add new Feature</h1>
+            <button class="close" data-dismiss="modal" type="button">×</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+
+            <label for="titleid">Feature title*</label>
+
+            <input id="titleid" name="title" ngModel type="text">
+            <br/>
+
+            <label for="descid">Feature description</label>
+
+            <input id="descid" name="description" ngModel type="text">
+            <br/>
+
+
+            <label for="clienttype"> Client*</label>
+            <select id="clienttype" name="client" ngModel>
+              <ng-container *ngFor="let c of clients">
+                <option value="{{c}}">
+                  {{c}}
+                </option>
+              </ng-container>
+            </select>
+
+            <br/>
+
+
+            <label for="priorityid">Client Priority *</label>
+
+            <input id="priorityid" name="priority" ngModel type="text">
+            <br/>
+
+            <label for="targetid">Feature target date </label>
+
+            <input id="targetid" name="targetDate" ngModel type="date">
+            <br/>
+
+            <label for="prodtype">Product Area</label>
+            <select id="prodtype" name="productArea" ngModel>
+              <ng-container *ngFor="let c of products">
+                <option value="{{c}}">
+                  {{c}}
+                </option>
+              </ng-container>
+            </select>
+
+
+            <br/>
+
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <span *ngIf="status" class="alert alert-info ">
+              {{status}}
+            </span>
+
+            <input *ngIf="status != 'Success'" type="submit" value="Add" />
+
+            <button (click)="resetStatus()" *ngIf="status == 'Success'"  > Add Another</button>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
